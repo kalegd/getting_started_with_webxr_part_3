@@ -1,6 +1,5 @@
 import * as THREE from './three.module.js';
-import { VRButton } from './VRButton.js';
-import BasicControls from './BasicControls.js';
+import SessionHandler from './SessionHandler.js';
 import global from './global.js';
 
 export default class Main {
@@ -10,8 +9,7 @@ export default class Main {
         this._camera;
         this._shapes;
         this._clock = new THREE.Clock();
-        this._container = document.querySelector('#container');
-        this._pointerStart = document.querySelector('#pointer-start');
+        this._container = document.getElementById('container');
 
         this._createRenderer();
         this._createScene();
@@ -19,7 +17,7 @@ export default class Main {
         this._createAssets();
         this._addEventListeners();
 
-        this._controls = new BasicControls(this._camera, this._pointerStart);
+        this._sessionHandler = new SessionHandler(this._renderer, this._camera);
 
         this._renderer.setAnimationLoop(() => { this._update() });
     }
@@ -30,7 +28,6 @@ export default class Main {
         this._container.appendChild(this._renderer.domElement);
         if(global.deviceType == "XR") {
             this._renderer.xr.enabled = true;
-            this._container.appendChild(VRButton.createButton(this._renderer));
         }
 
     }

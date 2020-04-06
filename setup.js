@@ -4,10 +4,7 @@ import global from './global.js';
 global.deviceType = "POINTER";
 
 function start() {
-    if(global.deviceType == "POINTER") {
-        document.getElementById("pointer-start").classList.remove("display-none");
-    }
-    new Main(global.deviceType);
+    new Main();
 }
 
 if('xr' in navigator) {
