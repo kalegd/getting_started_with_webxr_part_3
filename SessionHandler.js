@@ -33,7 +33,7 @@ export default class SessionHandler {
         this._div.style.position = 'absolute';
         this._div.style.bottom = '20px';
         this._div.style.width = '100%';
-        this._button.style.padding = '12px 12px';
+        this._button.style.padding = '12px';
         this._button.style.border = '1px solid #fff';
         this._button.style.borderRadius = '4px';
         this._button.style.background = 'rgba(0,0,0,0.1)';
